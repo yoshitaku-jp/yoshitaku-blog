@@ -3,21 +3,27 @@ import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 import Layout from "../components/Layout"
 import PostList from "../components/PostList"
-const IndexPage = props => {
+const CategoryPage = props => {
+  const category = props.data.microcmsCategory
   const posts = props.data.allMicrocmsPost.nodes
   return (
     <Layout>
       <Helmet>
-        <title>よしたく Blog</title>
-        <meta name="description" content="よしたくの雑記です" />
+        <title>{category.name}</title>
+        <meta name="description" content={category.description} />
       </Helmet>
       <PostList posts={posts} />
     </Layout>
   )
 }
 export const query = graphql`
-  query {
-    allMicrocmsPost {
+  query($slug: String!) {
+    microcmsCategory(slug: { eq: $slug }) {
+      slug
+      name
+      description
+    }
+    allMicrocmsPost(filter: { category: { slug: { eq: $slug } } }) {
       nodes {
         slug
         title
@@ -27,11 +33,8 @@ export const query = graphql`
           slug
           name
         }
-        thumbnail {
-          url
-        }
       }
     }
   }
 `
-export default IndexPage
+export default CategoryPage

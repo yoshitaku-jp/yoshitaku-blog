@@ -1,10 +1,23 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
-
 module.exports = {
-  /* Your site config here */
-  plugins: [],
+  siteMetadata: {
+    title: "よしたく Blog",
+  },
+  plugins: [
+    "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: process.env.MICROCMS_API_KEY,
+        serviceId: "yoshitaku-jp",
+        apis: [
+          {
+            endpoint: "post",
+          },
+          {
+            endpoint: "category",
+          },
+        ],
+      },
+    },
+  ],
 }

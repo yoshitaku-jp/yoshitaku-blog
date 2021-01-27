@@ -14,9 +14,18 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "gatsby": "^2.24.66",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "fontsource-fira-sans": "^4.0.0",
+    "fontsource-fira-sans-condensed": "^1.0.1",
+    "gatsby": "^2.31.1",
+    "gatsby-plugin-react-helmet": "^3.9.0",
+    "gatsby-source-filesystem": "^2.10.0",
+    "gatsby-source-microcms": "^1.0.1",
+    "gatsby-source-rss-feed": "^1.2.2",
+    "gatsby-transformer-yaml": "^2.10.0",
+    "minireset.css": "0.0.7",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
     "prettier": "2.1.2"

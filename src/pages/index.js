@@ -8,7 +8,7 @@ const IndexPage = props => {
   return (
     <Layout>
       <Helmet>
-        <title>よしたく Blog</title>
+        <title>よしたく 雑記Blog</title>
         <meta name="description" content="よしたくの雑記です" />
       </Helmet>
       <PostList posts={posts} />
@@ -17,18 +17,15 @@ const IndexPage = props => {
 }
 export const query = graphql`
   query {
-    allMicrocmsPost {
+    allMicrocmsPost(sort: { fields: [publishedAtView], order: DESC }) {
       nodes {
         slug
         title
         content
-        publishedAt(formatString: "YYYY.DD.MM hh:mm")
+        publishedAtView(formatString: "YYYY.DD.MM hh:mm")
         category {
           slug
           name
-        }
-        thumbnail {
-          url
         }
       }
     }

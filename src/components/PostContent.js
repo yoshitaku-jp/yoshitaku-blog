@@ -1,14 +1,11 @@
-import React from "react";
-import styles from "./PostContent.module.css";
+import React from "react"
+import styles from "./PostContent.module.css"
 
-const PostContent = (props) => {
-  const { title, content, category, publishedAt, thumbnail } = props.post;
+const PostContent = props => {
+  const { title, content, category, publishedAt } = props.post
   return (
     <article>
       <div className={styles.container}>
-        <div className={styles.thumbnailWrapper}>
-          <img src={thumbnail?.url} alt={title} />
-        </div>
         <div className={styles.headContent}>
           <p className={styles.category}>{category.name}</p>
           <div className={styles.title}>{title}</div>
@@ -20,7 +17,7 @@ const PostContent = (props) => {
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </article>
-  );
-};
+  )
+}
 
-export default PostContent;
+export default PostContent

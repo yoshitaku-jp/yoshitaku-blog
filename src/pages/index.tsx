@@ -21,7 +21,7 @@ const Home: NextPage<Props> = ({ allPosts }) => {
 
         <ul>
           {allPosts.map((post) => (
-            <a href={post.slug} className={styles.card} key={post.slug}>
+            <a href={post.slug} key={post.slug}>
               <h2>{post.title}</h2>
               <p>{post.date}</p>
             </a>
